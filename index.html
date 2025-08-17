@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Dessert Shopping Cart</title>
+  </head>
+  <body>
+    <div class="container-md">
+      <div class="container row">
+        <div class="product">
+          <h2>Desserts</h2>
+          <div class="product-items"></div>
+        </div>
+        <div class="cart">
+          <div class="carContainer"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="overly">
+      <div class="modalBox">
+        <div style="font-size: 48px; margin-bottom: 20px">
+          <img src="./assets/images/icon-order-confirmed.svg" alt="" />
+        </div>
+        <h2>Order Confirmed</h2>
+        <p class="sub">We hope you enjoy your food!</p>
+        <div id="orderSummary" class="summary"></div>
+        <button id="closeModal">Start New Order</button>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>

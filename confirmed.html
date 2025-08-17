@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Confirm</title>
+  <style>
+    /* الخلفية الشفافة */
+    .overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      display: none; /* مخفي */
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    /* صندوق النافذة */
+    .modal {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      width: 400px;
+      max-width: 90%;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      text-align: center;
+      animation: pop .3s ease;
+    }
+
+    /* أنيميشن */
+    @keyframes pop {
+      from { transform: scale(0.8); opacity: 0; }
+      to   { transform: scale(1); opacity: 1; }
+    }
+
+    .modal h2 {
+      margin: 0;
+      font-size: 1.5rem;
+      color: #333;
+    }
+
+    .modal p {
+      margin: 10px 0;
+      color: #666;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #e74c3c;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 8px;
+      margin-top: 15px;
+      cursor: pointer;
+      border: none;
+    }
+    .btn:hover { background: #c0392b; }
+  </style>
+</head>
+<body>
+
+  <!-- زر تأكيد الطلب -->
+  <button id="confirmBtn" class="btn">Confirm Order</button>
+
+  <!-- النافذة المخفية -->
+  <div class="overlay" id="orderModal">
+    <div class="modal">
+      <h2>✅ Order Confirmed</h2>
+      <p>We hope you enjoy your food!</p>
+      <p><strong>Total: $46.50</strong></p>
+      <button class="btn" id="closeModal">Start New Order</button>
+    </div>
+  </div>
+
+  <script>
+    const confirmBtn = document.getElementById("confirmBtn");
+    const orderModal = document.getElementById("orderModal");
+    const closeModal = document.getElementById("closeModal");
+
+    // لما تدوس على زر "Confirm Order" → يظهر الـ modal
+    confirmBtn.addEventListener("click", () => {
+      orderModal.style.display = "flex";
+    });
+
+    // لما تدوس على "Start New Order" → يخفي النافذة
+    closeModal.addEventListener("click", () => {
+      orderModal.style.display = "none";
+    });
+
+    // يقفل لو ضغطت بره الصندوق
+    orderModal.addEventListener("click", (e) => {
+      if (e.target === orderModal) {
+        orderModal.style.display = "none";
+      }
+    });
+  </script>
+</body>
+</html>
