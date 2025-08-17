@@ -37,7 +37,7 @@ function displayProducts() {
   // Display products
   products.forEach((productData, index) => {
     let items = document.createElement("div");
-    items.className = "items";
+    items.classList = "items col-lg-4 col-sm-6 col-12";
     items.dataset.productId = index;
     productItems.appendChild(items);
 
